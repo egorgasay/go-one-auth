@@ -47,8 +47,10 @@ func (h *Handler) Verify(w http.ResponseWriter, r *http.Request) {
 	}
 	defer r.Body.Close()
 
-	if ok, err := h.logic.VerifyPair(r.Context(), kv.Key, kv.Value); err != nil || !ok {
-		h.logger.Warn(err.Error())
+	if ok, err := h.logic.VerifyPair(r.Context(), kv.Key, kv.Value); !ok {
+		if err != nil {
+			h.logger.Warn(err.Error())
+		}
 		w.WriteHeader(http.StatusUnauthorized)
 	}
 

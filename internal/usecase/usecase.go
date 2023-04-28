@@ -23,7 +23,7 @@ func (uc *UseCase) CreatePair(context context.Context, username, password string
 func (uc *UseCase) VerifyPair(context context.Context, username, password string) (bool, error) {
 	value, err := uc.storage.GetPair(context, username)
 	if err != nil {
-		return false, fmt.Errorf("usecase: %w", err)
+		return false, fmt.Errorf("storage.GetPair: %w", err)
 	}
 
 	return value == password, nil

@@ -54,7 +54,7 @@ func (s Sqlite3) Ping() error {
 	return s.DB.Ping()
 }
 
-func (s Sqlite3) GetOne(ctx context.Context, key string) (string, error) {
+func (s Sqlite3) Get(ctx context.Context, key string) (string, error) {
 	var value string
 	err := s.QueryRowContext(ctx, "SELECT value FROM key_value WHERE key = ?", key).Scan(&value)
 	if err != nil {
@@ -63,7 +63,7 @@ func (s Sqlite3) GetOne(ctx context.Context, key string) (string, error) {
 	return value, nil
 }
 
-func (s Sqlite3) SetOne(ctx context.Context, key, value string) error {
+func (s Sqlite3) Set(ctx context.Context, key, value string) error {
 	_, err := s.ExecContext(ctx, "INSERT INTO key_value (key, value) VALUES (?, ?)", key, value)
 	if err != nil {
 		if c, ok := err.(sqlite3.Error); ok && c.Code == sqlite3.ErrConstraint {

@@ -3,11 +3,12 @@ module go-one-auth
 go 1.19
 
 require (
-	github.com/egorgasay/grpcis-go-sdk v0.0.2
+	github.com/egorgasay/grpcis-go-sdk v0.1.1
 	github.com/go-chi/chi/v5 v5.0.7
 	github.com/go-chi/httplog v0.3.0
 	github.com/golang-migrate/migrate/v4 v4.15.2
 	github.com/mattn/go-sqlite3 v1.14.16
+	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.29.1
 )
 
@@ -31,10 +32,10 @@ require (
 	modernc.org/cc/v3 v3.32.4 // indirect
 	modernc.org/ccgo/v3 v3.9.2 // indirect
 	modernc.org/libc v1.9.5 // indirect
-	modernc.org/mathutil v1.2.2 // indirect
+	modernc.org/mathutil v1.5.0 // indirect
 	modernc.org/memory v1.0.4 // indirect
 	modernc.org/opt v0.1.1 // indirect
 	modernc.org/sqlite v1.10.6 // indirect
-	modernc.org/strutil v1.1.0 // indirect
+	modernc.org/strutil v1.1.3 // indirect
 	modernc.org/token v1.0.0 // indirect
 )
